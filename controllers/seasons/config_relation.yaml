@@ -1,0 +1,8 @@
+dates:
+    label: Dates
+    manage:
+        form: $/cargie/booking/models/seasondate/fields.yaml
+        list: $/cargie/booking/models/seasondate/columns.yaml
+    view:
+        list: $/cargie/booking/models/seasondate/columns.yaml
+        toolbarButtons: add|delete

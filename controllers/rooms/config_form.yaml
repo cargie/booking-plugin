@@ -1,0 +1,36 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Room
+
+# Model Form Field configuration
+form: $/cargie/booking/models/room/fields.yaml
+
+# Model Class name
+modelClass: Cargie\Booking\Models\Room
+
+# Default redirect location
+defaultRedirect: cargie/booking/rooms
+
+# Create page
+create:
+    title: Create Room
+    redirect: cargie/booking/rooms/update/:id
+    redirectClose: cargie/booking/rooms
+    form: $/cargie/booking/models/room/create_fields.yaml
+
+# Update page
+update:
+    title: Edit Room
+    redirect: cargie/booking/rooms
+    redirectClose: cargie/booking/rooms
+
+# Preview page
+preview:
+    title: Preview Room
+    form:
+        fields:
+            name:
+                label: Name

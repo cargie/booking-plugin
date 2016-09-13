@@ -1,0 +1,8 @@
+customer:
+    label: Customer
+    view:
+        form: $/cargie/booking/models/customer/fields.yaml
+        toolbarButtons: create|link
+    manage:
+        form: $/cargie/booking/models/customer/fields.yaml
+        list: $/cargie/booking/models/customer/columns.yaml

@@ -1,0 +1,19 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    room:
+        label: Room
+        relation: room
+        select: name
+    customer:
+        label: Customer
+        relation: customer
+        select: concat(name,' ',surname)
+    booking_dates:
+        label: Dates
+        type: text

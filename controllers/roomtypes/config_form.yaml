@@ -1,0 +1,32 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Room Type
+
+# Model Form Field configuration
+form: $/cargie/booking/models/roomtype/fields.yaml
+
+# Model Class name
+modelClass: Cargie\Booking\Models\RoomType
+
+# Default redirect location
+defaultRedirect: cargie/booking/roomtypes
+
+# Create page
+create:
+    title: Create Room Type
+    redirect: cargie/booking/roomtypes/update/:id
+    redirectClose: cargie/booking/roomtypes
+    form: $/cargie/booking/models/roomtype/create_fields.yaml
+
+# Update page
+update:
+    title: Edit Room Type
+    redirect: cargie/booking/roomtypes
+    redirectClose: cargie/booking/roomtypes
+
+# Preview page
+preview:
+    title: Preview Room Type

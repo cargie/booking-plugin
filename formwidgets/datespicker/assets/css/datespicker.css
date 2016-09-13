@@ -1,0 +1,24 @@
+/*
+ * This is a sample StyleSheet file used by {{ name }}
+ *
+ * You can delete this file if you want
+ */
+ .custom.custom-checkbox.inline{
+    display: inline-block;
+ }
+ label.weekend{
+    color: #F52
+ }
+ .day_num{
+    padding-left: 2px;
+    margin-bottom: -5px;
+ }
+ .day_let{
+    padding-left: 2px;
+ }
+ .custom.custom-checkbox.inline label{
+    padding:0px;
+ }
+ .custom.custom-checkbox.inline label::before{
+    margin-right: 1px;
+ }

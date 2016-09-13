@@ -1,0 +1,13 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: Name
+    slug:
+        label: Slug
+    rooms:
+        relation: rooms
+        label: Rooms
+        select: name

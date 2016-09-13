@@ -1,0 +1,9 @@
+columns:
+    pivot[rate]:
+        label: Rate
+    pivot[type_column]:
+        label: Rate Settings
+    name:
+        label: Season Filter
+    description:
+        label: Description

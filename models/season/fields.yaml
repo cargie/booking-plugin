@@ -1,0 +1,33 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+# tabs:
+fields:
+    name:
+        tab: Basic Information
+        label: Name
+        type: text
+        span: auto
+        required: true
+    slug:
+        tab: Basic Information
+        label: Slug
+        span: auto
+        type: text
+        required: true
+        preset:
+            field: name
+            type: slug
+    description:
+        tab: Basic Information
+        label: Description
+        required: true
+        type: textarea
+        size: small
+    dates:
+        tab: Dates
+        type: datespicker
+        label: Dates
+        minYear: 2016
+        maxYear: 2025

@@ -1,0 +1,64 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Name
+        type: text
+        required: true
+        span: auto
+    slug:
+        label: Slug
+        type: text
+        required: true
+        span: auto
+        preset:
+            field: name
+            type: slug
+    adult_rates:
+        label: Additional Costs for adult visitors
+        span: auto
+        type: repeater
+        prompt: Add new adult visitor costs
+        form:
+            fields:
+                adult_number:
+                    label: No. of visitor
+                    type: number
+                    required: true
+                    span: auto
+                    default: 1
+                    options:
+                        required: true
+                adult_cost:
+                    label: Cost in (%)
+                    type: number
+                    required: true
+                    span: auto
+                    default: 100
+                    options:
+                        required: true
+    children_rates:
+        label: Additional Costs for children visitors
+        span: auto
+        type: repeater
+        prompt: Add new children visitor costs
+        form:
+            fields:
+                children_number:
+                    label: No. of visitor
+                    type: number
+                    required: true
+                    span: auto
+                    default: 1
+                    attributes:
+                        required: required
+                children_cost:
+                    label: Cost in (%)
+                    type: number
+                    required: true
+                    default: 100
+                    span: auto
+                    attributes:
+                        required: required

@@ -1,0 +1,16 @@
+# person:
+#     label: Season
+#     view:
+#         form: $/acme/user/models/person/fields.yaml
+#         toolbarButtons: link|unlink
+#     manage:
+#         form: $/acme/user/models/person/fields.yaml
+#         list: $/acme/user/models/person/columns.yaml
+season:
+    label: Season
+    view:
+        form: $/cargie/booking/models/season/fields.yaml
+        toolbarButtons: link|unlink
+    manage:
+        form: $/cargie/booking/models/season/fields.yaml
+        list: $/cargie/booking/models/season/columns.yaml

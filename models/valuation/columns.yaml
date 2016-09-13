@@ -1,0 +1,16 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    rate_type:
+        label: Rate Settings
+        valueFrom: rate_type_list
+    season:
+        label: Season
+        default: Any days
+        relation: season
+        select: name

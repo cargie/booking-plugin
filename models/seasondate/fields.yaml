@@ -1,0 +1,9 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    date:
+      label: Date
+      type: datepicker
+      mode: date

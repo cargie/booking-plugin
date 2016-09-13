@@ -1,0 +1,100 @@
+<?php if ($this->previewMode): ?>
+
+    <div class="form-control">
+        <?= $value ?>
+    </div>
+
+<?php else: ?>
+    <?php
+        /*
+        <input
+            type="text"
+            id="<?= $this->getId('input') ?>"
+            name="<?= $name ?>"
+            value="<?= $value ?>"
+            class="form-control"
+            autocomplete="off" />
+        */
+    ?>
+    <div class="control-tabs content-tabs">
+        <ul class="nav nav-tabs" role="tablist" id="datespicker">
+            <?php
+            foreach(range($minYear, $maxYear) as $k => $year){
+                $active = $year == $year_now ? 'active' : '';
+                echo '
+                    <li role="presentation" class="'.$active.'">
+                        <a href="#'.$year.'" aria-controls="'.$year.'"
+                            role="tab" data-toggle="tab">
+                            '.$year.'
+                        </a>
+                    </li>
+                ';
+            }
+            ?>
+        </ul>
+        <div class="tab-content">
+            <?php
+                foreach(range($minYear, $maxYear) as $k=>$year){
+                    $months = '';
+                    $active = $year == $year_now ? 'active' : '';
+                    foreach(range(1,12) as $month){
+                        $month = Carbon\Carbon::now()->year($year)->month($month);
+                        $month_end = $month->endOfMonth();
+                        $month_dates = '<td style="padding:0px">';
+                        foreach(range(1,$month_end->day) as $day){
+                            $weekend = $month->day($day)->isWeekend() ? 'weekend' : '';
+                            $month_date = $month->day($day);
+                            if(in_array($month_date->format("Y-m-d"), $value)){
+                                $checked = 'checked';
+                            }else{
+                                $checked = '';
+                            }
+                            $month_dates .= '
+                                <label for="'.$month->day($day)->format("Y-m-d").'" class="'.$weekend.'">
+                                    <div class="day_num">
+                                        '.$day.'
+                                    </div>
+                                    <div class="custom custom-checkbox inline">
+                                        <span></span>
+                                        <input
+                                            type="checkbox" name="'.$name.'[]"
+                                            class="datespicker-'.$year.' datespicker-'.$month->format("Y-m").'"
+                                            id="'.$month_date->format("Y-m-d").'"
+                                            value="'.$month->day($day)->format("Y-m-d").'"
+                                            '.$checked.'>
+
+                                        <label for="'.$month_date->format("Y-m-d").'"></label>
+                                    </div>
+                                    <div class="day_let" style="margin-top:8px">
+                                        '.substr($month_date->format("D"),0,2).'
+                                    </div>
+                                </label>
+                            ';
+                        }
+                        $month_dates .= '</td>';
+                        $months .= '<tr>
+                                  <td style="vertical-align: middle;">
+                                    <div class="checkbox custom-checkbox">
+                                        <input type="checkbox"
+                                            class="datespicker-'.$year.' datespicker-'.$month->format("Y-m").'"
+                                            onclick="datespickermonth(this)"
+                                            id="'.$month->format("Y-m").'">
+                                        <label for="'.$month->format("Y-m").'">'.$month->format("F").'</label>
+                                    </div>
+                                  </td>
+                                  '.$month_dates.'
+                              </tr>';
+                    }
+                    echo 
+                        '<div role="tabpanel" class="tab-pane '.$active.'" id="'.$year.'">
+                            <table class="table table-hover">
+                                <tbody>
+                                    '.$months.'
+                                </tbody>
+                            </table>
+                        </div>';
+                }
+            ?>
+        </div>
+    </div>
+<?php endif ?>

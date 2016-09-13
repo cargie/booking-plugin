@@ -1,0 +1,78 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    stretch: true
+    fields:
+        name:
+            tab: Basic Information
+            label: Name
+            type: text
+            span: auto
+            required: true
+        slug:
+            tab: Basic Information
+            label: Slug
+            type: text
+            span: auto
+            required: true
+            preset:
+                field: name
+                type: slug
+        rate:
+            tab: Basic Information
+            label: Rate
+            type: number
+            required: true
+            default: 0
+            min: 0
+            span: auto
+        capacity:
+            tab: Basic Information
+            label: Capacity
+            type: number
+            default: 2
+            min: 0
+            required: true
+            span: auto
+        is_enable:
+            tab: Basic Information
+            label: Active
+            type: switch
+        description:
+            required: true
+            tab: Details
+            label: Description
+            type: richeditor
+        featured_image:
+            tab: Images
+            label: Featured Image
+            type: fileupload
+            mode: image
+            span: auto
+            required: true
+        images:
+            tab: Images
+            required: true
+            label: Images
+            type: fileupload
+            mode: image
+            span: auto
+        rates:
+            tab: Rates & Costs
+            label: Rates
+            type: partial
+            path: field_rates
+            span: auto
+        valuations:
+            tab: Rates & Costs
+            label: Valuation Days
+            type: partial
+            path: field_valuations
+            span: right
+        cost:
+            tab: Rates & Costs
+            label: Visitor Costs
+            type: relation
+            span: auto

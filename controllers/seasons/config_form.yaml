@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Season
+
+# Model Form Field configuration
+form: $/cargie/booking/models/season/fields.yaml
+
+# Model Class name
+modelClass: Cargie\Booking\Models\Season
+
+# Default redirect location
+defaultRedirect: cargie/booking/seasons
+
+# Create page
+create:
+    title: Create Season
+    redirect: cargie/booking/seasons/update/:id
+    redirectClose: cargie/booking/seasons
+
+# Update page
+update:
+    title: Edit Season
+    redirect: cargie/booking/seasons
+    redirectClose: cargie/booking/seasons
+
+# Preview page
+preview:
+    title: Preview Season

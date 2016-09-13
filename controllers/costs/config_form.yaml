@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Cost
+
+# Model Form Field configuration
+form: $/cargie/booking/models/visitorcost/fields.yaml
+
+# Model Class name
+modelClass: Cargie\Booking\Models\VisitorCost
+
+# Default redirect location
+defaultRedirect: cargie/booking/costs
+
+# Create page
+create:
+    title: Create Cost
+    redirect: cargie/booking/costs/update/:id
+    redirectClose: cargie/booking/costs
+
+# Update page
+update:
+    title: Edit Cost
+    redirect: cargie/booking/costs
+    redirectClose: cargie/booking/costs
+
+# Preview page
+preview:
+    title: Preview Cost

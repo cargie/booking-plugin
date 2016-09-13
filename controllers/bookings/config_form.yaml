@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Booking
+
+# Model Form Field configuration
+form: $/cargie/booking/models/booking/fields.yaml
+
+# Model Class name
+modelClass: Cargie\Booking\Models\Booking
+
+# Default redirect location
+defaultRedirect: cargie/booking/bookings
+
+# Create page
+create:
+    title: Create Booking
+    redirect: cargie/booking/bookings/update/:id
+    redirectClose: cargie/booking/bookings
+    form: $/cargie/booking/models/booking/create_fields.yaml
+# Update page
+update:
+    title: Edit Booking
+    redirect: cargie/booking/bookings
+    redirectClose: cargie/booking/bookings
+
+# Preview page
+preview:
+    title: Preview Booking

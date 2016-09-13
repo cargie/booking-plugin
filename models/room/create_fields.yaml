@@ -1,0 +1,113 @@
+tabs:
+    stretch: true
+    fields:
+        name:
+            tab: Basic Information
+            label: Name
+            type: text
+            span: auto
+            required: true
+        slug:
+            tab: Basic Information
+            label: Slug
+            type: text
+            span: auto
+            required: true
+            preset:
+                field: name
+                type: slug
+        room_type:
+            tab: Basic Information
+            label: Room Type
+            type: dropdown
+            span: auto
+        rate:
+            tab: Basic Information
+            label: Rate
+            type: number
+            span: auto
+            required: true
+            dependsOn: room_type
+        capacity:
+            tab: Basic Information
+            label: Capacity
+            type: number
+            span: auto
+            required: true
+            dependsOn: room_type
+        priority:
+            tab: Basic Information
+            label: Priority
+            span: auto
+            type: dropdown
+            options:
+                1: 1
+                2: 2
+                3: 3
+                4: 4
+                5: 5
+                6: 6
+                7: 7
+                8: 8
+                9: 9
+                10: 10
+                12: 12
+                13: 13
+                14: 14
+                15: 15
+                16: 16
+                17: 17
+                18: 18
+                19: 19
+                20: 20
+                21: 21
+                22: 22
+                23: 23
+                24: 24
+                25: 25
+                26: 26
+                27: 27
+                28: 28
+                29: 29
+                30: 30
+            comment: "Higher priority will be reserved firstly."
+        is_enable:
+            tab: Basic Information
+            label: Available
+            type: switch
+            default: true
+        rates:
+            tab: Rates & Costs
+            span: auto
+            label: Rates
+            type: partial
+        valuations:
+            tab: Rates & Costs
+            label: Valuation Days
+            type: partial
+            path: field_valuations
+            span: right
+        cost:
+            tab: Rates & Costs
+            label: Visitor Costs
+            type: relation
+            span: auto
+        featured_image:
+            tab: Images & Details
+            label: Featured Image
+            type: fileupload
+            mode: image
+            span: auto
+            required: true
+        images:
+            tab: Images & Details
+            label: Images
+            type: fileupload
+            mode: image
+            span: auto
+        description:
+            tab: Images & Details
+            label: Description
+            type: richeditor
+            required: true
+            span: full

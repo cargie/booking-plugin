@@ -1,0 +1,15 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    rate:
+        label: Rate
+        type: number
+        default: 100
+    type:
+        label: Rate Settings
+        type: dropdown
+        options:
+            P: % from the cost per day
+            F: per day

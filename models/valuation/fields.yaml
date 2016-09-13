@@ -1,0 +1,29 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    type:
+        label: Type
+        type: dropdown
+        options:
+            FO: For
+            # FR: From
+            TO: Together
+    days:
+        label: Days
+        type: number
+    rate:
+        label: Rate
+        type: number
+        span: auto
+        default: 100
+    rate_type:
+        span: auto
+        label: Cost Settings
+        type: dropdown
+        dependsOn: type
+    season:
+        label: Season
+        type: relation
+        emptyOption: Any days

@@ -1,0 +1,30 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: Name
+        searchable: true
+    rate:
+        label: Rate
+        sortable: true
+        type: number
+    capacity:
+        label: Capacity
+        sortable: true
+        type: number
+    priority:
+        label: Priority
+        type: number
+    room_type:
+        label: Room Type
+        relation: room_type
+        select: name
+    cost:
+        label: Visitor Costs
+        relation: cost
+        select: name
+    is_enable:
+        label: Active
+        type: switch 

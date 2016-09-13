@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Rate
+
+# Model Form Field configuration
+form: $/cargie/booking/models/rate/fields.yaml
+
+# Model Class name
+modelClass: Cargie\Booking\Models\Rate
+
+# Default redirect location
+defaultRedirect: cargie/booking/rates
+
+# Create page
+create:
+    title: Create Rate
+    redirect: cargie/booking/rates/update/:id
+    redirectClose: cargie/booking/rates
+
+# Update page
+update:
+    title: Edit Rate
+    redirect: cargie/booking/rates
+    redirectClose: cargie/booking/rates
+
+# Preview page
+preview:
+    title: Preview Rate

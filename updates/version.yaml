@@ -1,0 +1,12 @@
+1.0.1: 
+    - First version of Booking
+    - create_room_types_table.php
+    - create_rooms_table.php
+    - create_seasons_table.php
+    - create_season_dates_table.php
+    - create_valuations_table.php
+    - create_room_type_rates_table.php
+    - create_room_rates_table.php
+    - create_booking_dates_table.php
+    - create_bookings_table.php
+    - create_visitor_costs_table.php

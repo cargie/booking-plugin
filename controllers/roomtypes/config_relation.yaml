@@ -1,0 +1,17 @@
+valuations:
+    label: Valuation Days
+    view:
+        list: $/cargie/booking/models/valuation/columns.yaml
+        toolbarButtons: create|delete
+    manage:
+        list: $/cargie/booking/models/valuation/columns.yaml
+        form: $/cargie/booking/models/valuation/fields.yaml
+rates:
+    label: Rates
+    view:
+        list: $/cargie/booking/models/roomtyperatepivot/columns.yaml
+        toolbarButtons: add|remove
+    manage:
+        list: $/cargie/booking/models/rate/columns.yaml
+    pivot:
+        form: $/cargie/booking/models/roomtyperatepivot/fields.yaml
