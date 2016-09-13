@@ -136,7 +136,7 @@ class Booking extends Model
                 })->unique();
                 $available_rooms = $rooms->diff($booked_rooms)->lists('name', 'id');
                 if ($available_rooms) {
-                    $fields->room_id->options = array_merge([0 => '-- select room --'], $available_rooms);
+                    $fields->room_id->options = [0 => '-- select room --'] + $available_rooms;
                 } else {
                     $fields->room_id->options = [
                         null => 'No rooms available',
