@@ -104,11 +104,6 @@ class Plugin extends PluginBase
                 'permissions' => ['cargie.booking.*'],
                 'order' => 300,
                 'sideMenu' => [
-                    // 'room types' => [
-                    //     'label' => 'Room Types',
-                    //     'url' => Backend::url('cargie/booking/roomtypes'),
-                    //     'icon' => 'icon-building',
-                    // ],
                     'bookings' => [
                         'label' => 'Bookings',
                         'url' => Backend::url('cargie/booking/bookings'),
