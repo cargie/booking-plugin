@@ -1,14 +1,13 @@
 tabs:
-    stretch: true
     fields:
         name:
-            tab: Basic Information
+            tab: 'Basic Information'
             label: Name
             type: text
             span: auto
             required: true
         slug:
-            tab: Basic Information
+            tab: 'Basic Information'
             label: Slug
             type: text
             span: auto
@@ -17,26 +16,26 @@ tabs:
                 field: name
                 type: slug
         room_type:
-            tab: Basic Information
-            label: Room Type
+            tab: 'Basic Information'
+            label: 'Room Type'
             type: dropdown
             span: auto
         rate:
-            tab: Basic Information
+            tab: 'Basic Information'
             label: Rate
             type: number
             span: auto
             required: true
             dependsOn: room_type
         capacity:
-            tab: Basic Information
+            tab: 'Basic Information'
             label: Capacity
             type: number
             span: auto
             required: true
             dependsOn: room_type
         priority:
-            tab: Basic Information
+            tab: 'Basic Information'
             label: Priority
             span: auto
             type: dropdown
@@ -70,44 +69,49 @@ tabs:
                 28: 28
                 29: 29
                 30: 30
-            comment: "Higher priority will be reserved firstly."
+            comment: 'Higher priority will be reserved firstly.'
         is_enable:
-            tab: Basic Information
+            tab: 'Basic Information'
             label: Available
             type: switch
             default: true
         rates:
-            tab: Rates & Costs
+            tab: 'Rates & Costs'
             span: auto
             label: Rates
             type: partial
         valuations:
-            tab: Rates & Costs
-            label: Valuation Days
+            tab: 'Rates & Costs'
+            label: 'Valuation Days'
             type: partial
             path: field_valuations
             span: right
         cost:
-            tab: Rates & Costs
-            label: Visitor Costs
+            tab: 'Rates & Costs'
+            label: 'Visitor Costs'
             type: relation
             span: auto
         featured_image:
-            tab: Images & Details
-            label: Featured Image
-            type: fileupload
+            label: 'Featured Image'
             mode: image
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
             span: auto
-            required: true
+            required: 0
+            type: fileupload
+            tab: 'Images & Details'
         images:
-            tab: Images & Details
+            tab: 'Images & Details'
             label: Images
             type: fileupload
             mode: image
             span: auto
         description:
-            tab: Images & Details
             label: Description
-            type: richeditor
-            required: true
+            size: ''
             span: full
+            required: 0
+            type: richeditor
+            tab: 'Images & Details'
