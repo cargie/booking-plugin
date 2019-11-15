@@ -1,7 +1,3 @@
-# ===================================
-#  Form Field Definitions
-# ===================================
-
 fields:
     name:
         label: Name
@@ -17,48 +13,60 @@ fields:
             field: name
             type: slug
     adult_rates:
-        label: Additional Costs for adult visitors
+        label: 'Additional Costs for adult visitors'
+        prompt: 'Add new adult visitor costs'
         span: auto
         type: repeater
-        prompt: Add new adult visitor costs
         form:
             fields:
                 adult_number:
-                    label: No. of visitor
-                    type: number
-                    required: true
+                    label: 'No. of visitor'
                     span: auto
                     default: 1
-                    options:
-                        required: true
-                adult_cost:
-                    label: Cost in (%)
-                    type: number
                     required: true
-                    span: auto
-                    default: 100
+                    type: number
+                type:
+                    label: 'Fix or Percentage'
                     options:
-                        required: true
+                        fix: Fix
+                        percentage: Percentage
+                    showSearch: true
+                    span: auto
+                    type: dropdown
+                adult_cost:
+                    label: Cost
+                    span: full
+                    default: 100
+                    required: true
+                    type: number
     children_rates:
-        label: Additional Costs for children visitors
+        label: 'Additional Costs for children visitors'
         span: auto
         type: repeater
-        prompt: Add new children visitor costs
+        prompt: 'Add new children visitor costs'
         form:
             fields:
                 children_number:
-                    label: No. of visitor
-                    type: number
-                    required: true
+                    label: 'No. of visitor'
                     span: auto
                     default: 1
-                    attributes:
-                        required: required
-                children_cost:
-                    label: Cost in (%)
-                    type: number
                     required: true
-                    default: 100
-                    span: auto
                     attributes:
                         required: required
+                    type: number
+                type:
+                    label: 'Fix or Percentage'
+                    options:
+                        fix: Fix
+                        percentage: Percentage
+                    showSearch: true
+                    span: auto
+                    type: dropdown
+                children_cost:
+                    label: 'Cost in (%)'
+                    span: full
+                    default: 100
+                    required: true
+                    attributes:
+                        required: required
+                    type: number
