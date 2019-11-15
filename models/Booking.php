@@ -1,10 +1,8 @@
 <?php namespace Cargie\Booking\Models;
 
 use Carbon\Carbon;
-use Cargie\Booking\Models\Booking;
 use Cargie\Booking\Models\BookingDate;
 use Cargie\Booking\Models\Room;
-use Jenssegers\Date\Date;
 use Model;
 use October\Rain\Database\Traits\Purgeable;
 use October\Rain\Database\Traits\Validation;
