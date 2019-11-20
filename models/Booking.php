@@ -36,7 +36,8 @@ class Booking extends Model
         'customer' => 'required',
     ];
     public $attributes = [
-        'status' => 'approved'
+        'status' => 'approved',
+        'source' => 'website',
     ];
     public $customMessages = [
         'children.numeric' => ':attribute, Please select a number',
