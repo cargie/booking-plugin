@@ -1,6 +1,7 @@
 <?php namespace Cargie\Booking\Models;
 
 use Model;
+use Illuminate\Support\Facades\Log;
 use October\Rain\Database\Traits\Validation;
 
 /**
@@ -56,25 +57,28 @@ class VisitorCost extends Model
         $total = 0;
         if ($adult) {
             $rate = collect($this->adult_rates);
-            $cost = $rate->sortByDesc('adult_number')->lists('adult_number', 'adult_cost');
+            $cost = $rate->sortByDesc('adult_number');
             while ($adult >= 0) {
-                $adult_rate = $cost->search($adult);
+                $adult_rate = $cost->where('adult_number', $adult)->first();
                 if ($adult_rate) {
-                    $total += ($room_rate * ($adult_rate / 100));
-                    break;
-                } else {
-                    $adult -= 1;
+                    if ($adult_rate['type'] == 'percentage') {
+                        $total += ($room_rate * ($adult_rate['adult_cost'] / 100));
+                    } else {
+                        $total += $adult_rate['adult_cost'];
+                    }
                 }
+                $adult -= 1;
             }
         }
         if ($children) {
             $rate = collect($this->children_rates);
-            $cost = $rate->sortByDesc('children_number')->lists('children_number', 'children_cost');
+            $cost = $rate->sortByDesc('children_number');
             while ($children >= 1) {
-                $children_rate = $cost->search($children);
-                if ($children_rate) {
-                    $total += ($room_rate * ($children_rate / 100)) - $room_rate;
-                    break;
+                $children_rate = $cost->where('children_number', $children)->first();
+                if ($children_rate['type'] == 'percentage') {
+                    $total += ($room_rate * ($children_rate['children_cost'] / 100));
+                } else {
+                    $total += $children_rate['children_cost'];
                 }
                 $children -= 1;
             }
