@@ -33,7 +33,7 @@ class Booking extends Model
         'adult' => 'numeric|min:0',
         'children' => 'numeric|min:0|required',
         'rate' => 'required|numeric|min:0',
-        'customer' => 'required',
+        // 'customer' => 'required',
     ];
     public $attributes = [
         'status' => 'approved',
