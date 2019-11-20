@@ -28,7 +28,22 @@ tabs:
             options:
                 approved: Approved
                 pending: Pending
-            span: auto
+            span: left
+            required: true
+            type: dropdown
+            tab: 'Basic Information'
+        payment_status:
+            label: Payment Status
+            options:
+                completed: Completed
+                unknown: Unknown
+                in progress: In Progress
+                failed: Failed
+                partially paid: Partially Paid
+                cancelled: Cancelled
+                refunded: Refunded
+                fraud: Fraud
+            span: right
             required: true
             type: dropdown
             tab: 'Basic Information'
