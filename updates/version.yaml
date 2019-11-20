@@ -1,5 +1,5 @@
-1.0.1: 
-    - First version of Booking
+1.0.1:
+    - 'First version of Booking'
     - create_room_types_table.php
     - create_rooms_table.php
     - create_seasons_table.php
@@ -10,3 +10,6 @@
     - create_booking_dates_table.php
     - create_bookings_table.php
     - create_visitor_costs_table.php
+1.0.2:
+    - 'Updated table cargie_booking_bookings'
+    - builder_table_update_cargie_booking_bookings.php
