@@ -35,6 +35,9 @@ class Booking extends Model
         'rate' => 'required|numeric|min:0',
         'customer' => 'required',
     ];
+    public $attributes = [
+        'status' => 'approved'
+    ];
     public $customMessages = [
         'children.numeric' => ':attribute, Please select a number',
     ];
@@ -76,7 +79,7 @@ class Booking extends Model
                 $booked_rooms = BookingDate::whereBetween('date',
                     [Carbon::parse($this->from)->format('Y-m-d'), Carbon::parse($this->to)->format('Y-m-d')]
                 )->get()->transform(function ($item, $key) {
-                    return $item->reservation->room;
+                    return $item->booking->room;
                 })->unique();
                 $fields->room_id->value = -1;
                 $available_rooms = $rooms->diff($booked_rooms)->lists('name', 'id');
@@ -96,15 +99,15 @@ class Booking extends Model
                 $capacity = $selected_room->capacity;
                 $range = range(1, $capacity);
                 $adult_merge = array_merge(['null' => '-- select number --'], $range);
-                $children_range = range(0, $capacity -= $this->adult);
                 $fields->adult->options = array_combine($adult_merge, $adult_merge);
+                $children_range = range(0, $capacity -= (int) $this->adult);
                 $merge = array_merge(['null' => '-- select number --'], $children_range);
                 $fields->children->value = -1;
                 $fields->children->options = array_combine($merge, $merge);
                 if (is_numeric($this->children)) {
                     $from = Carbon::parse($this->from);
                     $to = Carbon::parse($this->to);
-                    $visitor_days = $from->diffInDays($to) + 1;
+                    $visitor_days = $from->diffInDays($to);
                     $visitor_rate = $selected_room->cost->getRateByVisitors($this->adult, $this->children, $selected_room->rate);
                     $fields->rate->value = $visitor_rate * $visitor_days;
                 } else {
