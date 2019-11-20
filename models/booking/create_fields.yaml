@@ -1,32 +1,39 @@
-# ===================================
-#  Form Field Definitions
-# ===================================
-
 tabs:
     fields:
         from:
-            tab: Basic Information
+            tab: 'Basic Information'
             label: From
             type: datepicker
             mode: date
             span: auto
+            required: true
         to:
-            tab: Basic Information
+            tab: 'Basic Information'
             label: To
             type: datepicker
             dependsOn: from
             mode: date
             span: auto
+            required: true
         room_id:
-            tab: Basic Information
+            tab: 'Basic Information'
             type: dropdown
             label: Room
             dependsOn: to
             span: left
             options:
-                null: -- select room --
+                '': '-- select room --'
+        status:
+            label: Status
+            options:
+                approved: Approved
+                pending: Pending
+            span: auto
+            required: true
+            type: dropdown
+            tab: 'Basic Information'
         adult:
-            tab: Basic Information
+            tab: 'Basic Information'
             type: dropdown
             label: Adult
             span: left
@@ -34,28 +41,24 @@ tabs:
             required: true
             showSearch: false
             options:
-                null: -- select number --
+                '': '-- select number --'
         children:
-            tab: Basic Information
+            tab: 'Basic Information'
             type: dropdown
             label: Children
             dependsOn: adult
             showSearch: false
             span: right
             options:
-                null: -- select number --
+                '': '-- select number --'
         rate:
-            tab: Basic Information
+            tab: 'Basic Information'
             type: text
             label: Rate
             span: left
             dependsOn: children
         customer:
             tab: Customer
-            type: recordfinder
-            list: ~/plugins/rainlab/user/models/user/columns.yaml
-            prompt: Click the %s button to find a user
-            nameFrom: name
-            descriptionFrom: email
+            type: partial
             label: Customer
             required: true
