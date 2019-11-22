@@ -6,7 +6,16 @@
 <?php Block::endPut() ?>
 
 <?php if (!$this->fatalError): ?>
-
+    <div class="scoreboard">
+        <div data-control="toolbar">
+            <?= $this->makePartial('preview_scoreboard') ?>
+        </div>
+    </div>
+    <div class="form-buttons buttons-offset">
+        <div class="loading-indicator-container">
+            <?= $this->makePartial('preview_toolbar') ?>
+        </div>
+    </div>
     <div class="form-preview">
         <?= $this->formRenderPreview() ?>
     </div>

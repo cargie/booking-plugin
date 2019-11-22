@@ -3,6 +3,10 @@
 # ===================================
 
 columns:
+    status:
+        label: Status
+        searchable: true
+        type: ucfirst
     id:
         label: ID
         searchable: true

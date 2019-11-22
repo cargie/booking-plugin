@@ -1,0 +1,13 @@
+fields:
+    status:
+        type: dropdown
+        label: Status
+        options:
+            completed: Completed
+            unknown: Unknown
+            in progress: In Progress
+            failed: Failed
+            partially paid: Partially Paid
+            cancelled: Cancelled
+            refunded: Refunded
+            fraud: Fraud

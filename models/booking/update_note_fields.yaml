@@ -1,0 +1,5 @@
+fields:
+    note:
+        type: textarea
+        label: Notes
+        size: large

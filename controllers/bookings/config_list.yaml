@@ -12,7 +12,7 @@ modelClass: Cargie\Booking\Models\Booking
 title: Manage Bookings
 
 # Link URL for each record
-recordUrl: cargie/booking/bookings/update/:id
+recordUrl: cargie/booking/bookings/preview/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records
@@ -25,6 +25,8 @@ showSetup: true
 
 # Displays the sorting link on each column
 showSorting: true
+
+# showCheckboxes: true
 
 # Default sorting column
 # defaultSort:

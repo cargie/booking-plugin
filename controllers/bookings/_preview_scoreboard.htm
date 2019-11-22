@@ -1,0 +1,31 @@
+<div class="scoreboard-item title-value">
+    <h4>Booking</h4>
+    <p>#<?= $formModel->id ?></p>
+    <p class="description">Created: <?= $formModel->created_at->toFormattedDateString() ?></p>
+</div>
+<?php if ($formModel->status): ?>
+    <div class="scoreboard-item title-value">
+        <h4>Status</h4>
+        <p><?= ucfirst($formModel->status) ?></p>
+        <p class="description">Since: <?= $formModel->updated_at->toFormattedDateString() ?></p>
+    </div>
+<?php endif ?>
+<?php if ($formModel->payment_status): ?>
+    <div class="scoreboard-item title-value">
+        <h4>Payment Status</h4>
+        <p><?= ucfirst($formModel->payment_status) ?></p>
+        <p class="description">Since: <?= $formModel->updated_at->toFormattedDateString() ?></p>
+    </div>
+<?php endif ?>
+<?php if ($formModel->customer): ?>
+    <div class="scoreboard-item title-value">
+        <h4>Customer</h4>
+        <p><?= $formModel->customer->name ?></p>
+        <p class="description">Email: <a href="mailto: <?= $formModel->customer->email ?>"><?= $formModel->customer->email ?></a></p>
+    </div>
+<?php endif ?>
+<div class="scoreboard-item title-value">
+    <h4>Total</h4>
+    <p><?= $currency->formatCurrency($formModel->rate) ?></p>
+    <p class="description"></p>
+</div>

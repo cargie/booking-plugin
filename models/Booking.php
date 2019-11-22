@@ -79,9 +79,9 @@ class Booking extends Model
                 $rooms = Room::available()->orderBy('room_type_id')->orderBy('priority', 'desc')->get();
                 $booked_rooms = BookingDate::whereBetween('date',
                     [Carbon::parse($this->from)->format('Y-m-d'), Carbon::parse($this->to)->format('Y-m-d')]
-                )->get()->filter(function ($item) {
-                    return $item->booking->where('status', '<>', 'pending');
-                })->transform(function ($item, $key) {
+                )->whereHas('booking', function ($query) {
+                    $query->where('status', 'approved');
+                })->get()->transform(function ($item, $key) {
                     return $item->booking->room;
                 })->unique();
                 $fields->room_id->value = -1;

@@ -1,0 +1,8 @@
+fields:
+    status:
+        type: dropdown
+        label: Status
+        options:
+            approved: Approved
+            pending: Pending
+            declined: Declined
