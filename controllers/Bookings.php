@@ -84,7 +84,7 @@ class Bookings extends Controller
             $this->handleError($ex);
         }
 
-        return $this->makePartial('change_status_form');
+        return $this->makePartial('change_payment_status_form');
     }
 
     public function preview_onLoadChangeNoteForm($recordId)
