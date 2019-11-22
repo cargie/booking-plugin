@@ -10,7 +10,9 @@ use System\Classes\PluginBase;
 class Plugin extends PluginBase
 {
 
-    public $require = ['Rainlab.User'];
+    public $require = [
+        'Rainlab.User', 'Responsiv.Pay'
+    ];
     /**
      * Returns information about this plugin.
      *
@@ -139,4 +141,24 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerListColumnTypes()
+    {
+        return [
+            // A local method, i.e $this->evalUppercaseListColumn()
+            'uppercase' => [$this, 'evalUppercaseListColumn'],
+
+            // Using an inline closure
+            'loveit' => function ($value) {
+                return 'I love ' . $value;
+            },
+            'ucfirst' => function ($value) {
+                return ucfirst($value);
+            }
+        ];
+    }
+
+    public function evalUppercaseListColumn($value, $column, $record)
+    {
+        return strtoupper($value);
+    }
 }
