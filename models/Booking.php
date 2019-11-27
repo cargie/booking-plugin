@@ -64,7 +64,11 @@ class Booking extends Model
     ];
     public $belongsToMany = [];
     public $morphTo = [];
-    public $morphOne = [];
+    public $morphOne = [
+        'invoice' => [
+            'Cargie\Booking\Models\Invoice', 'name' => 'related'
+        ]
+    ];
     public $morphMany = [];
     public $attachOne = [];
     public $attachMany = [];

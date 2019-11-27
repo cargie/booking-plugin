@@ -26,7 +26,6 @@ class Bookings extends Controller
     public function index()
     {
         $this->asExtension('ListController')->index();
-        $this->bodyClass = 'compact-container';
     }
 
     public function preview($recordId = null, $context = null)

@@ -16,8 +16,33 @@
             <?= $this->makePartial('preview_toolbar') ?>
         </div>
     </div>
-    <div class="form-preview">
-        <?= $this->formRenderPreview() ?>
+    <div class="control-tabs content-tabs tabs-offset" data-control="tab">
+        <ul class="nav nav-tabs">
+            <!-- <li><a href="#statusLog">Calendar</a></li> -->
+            <li><a href="#customer">Customer</a></li>
+            <li class="active"><a href="#invoice">Invoice</a></li>
+        </ul>
+        <div class="tab-content">
+            <!-- <div class="tab-pane">
+                <div class="padded-container">
+                    <div class="padded-container">
+                        <?= $this->makePartial('calendar') ?>
+                    </div>
+                </div>
+            </div> -->
+            <div class="tab-pane">
+                <div class="padded-container">
+                    <?= $this->relationRender('customer') ?>
+                </div>
+            </div>
+            <div class="tab-pane active">
+                <div class="padded-container">
+                    <div class="padded-container">
+                        <?= $this->makePartial('invoice_iframe') ?>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 <?php else: ?>
