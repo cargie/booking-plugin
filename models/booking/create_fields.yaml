@@ -4,7 +4,7 @@ tabs:
             tab: 'Basic Information'
             label: From
             type: datepicker
-            mode: date
+            mode: datetime
             span: auto
             required: true
         to:
@@ -12,7 +12,7 @@ tabs:
             label: To
             type: datepicker
             dependsOn: from
-            mode: date
+            mode: datetime
             span: auto
             required: true
         room_id:
