@@ -32,7 +32,7 @@ class Calendar extends Controller
     public function index()
     {
         $this->asExtension('ListController')->index();
-        $this->vars['bookings'] = Booking::with(['dates', 'room'])->get()->transform(function ($booking) {
+        $this->vars['bookings'] = Booking::where('status', '<>', 'declined')->with(['dates', 'room'])->get()->transform(function ($booking) {
             return [
                 'id' => $booking->id,
                 'title' => $booking->room->name . ' - ' . ucfirst($booking->customer->name) . ' - ' . ucfirst($booking->status),
