@@ -111,6 +111,11 @@ class Plugin extends PluginBase
                         'url' => Backend::url('cargie/booking/bookings'),
                         'icon' => 'icon-book',
                     ],
+                    'calendar' => [
+                        'label' => 'Calendar',
+                        'url' => Backend::url('cargie/booking/calendar'),
+                        'icon' => 'icon-calendar',
+                    ],
                     'rooms' => [
                         'label' => 'Rooms',
                         'url' => Backend::url('cargie/booking/rooms'),

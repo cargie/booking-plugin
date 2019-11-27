@@ -1,0 +1,47 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+# Model List Column configuration
+list: $/cargie/booking/models/booking/columns.yaml
+
+# Model Class name
+modelClass: Cargie\Booking\Models\Booking
+
+# List Title
+title: Manage Calendars
+
+# Link URL for each record
+recordUrl: cargie/booking/calendar/update/:id
+
+# Message to display if the list is empty
+noRecordsMessage: backend::lang.list.no_records
+
+# Records to display per page
+recordsPerPage: 20
+
+# Display page numbers with pagination, disable to improve performance
+showPageNumbers: false
+
+# Displays the list column set up button
+showSetup: false
+
+# Displays the sorting link on each column
+showSorting: false
+
+# Default sorting column
+# defaultSort:
+#     column: created_at
+#     direction: desc
+
+# Display checkboxes next to each record
+showCheckboxes: false
+
+# Toolbar widget configuration
+# toolbar:
+    # Partial for toolbar buttons
+    # buttons: list_toolbar
+
+    # Search widget configuration
+    # search:
+        # prompt: backend::lang.list.search_prompt

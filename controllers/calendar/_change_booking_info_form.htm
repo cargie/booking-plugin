@@ -1,0 +1,34 @@
+<?= Form::open(['id' => 'disableForm']) ?>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="popup">&times;</button>
+        <h4 class="modal-title">Booking Info</h4>
+    </div>
+    <div class="modal-body">
+
+        <?php if ($this->fatalError): ?>
+            <p class="flash-message static error"><?= $fatalError ?></p>
+        <?php endif ?>
+
+        <div class="form-preview">
+            <?= $widget->render() ?>
+        </div>
+        <input type="hidden" name="id" value="<?= $id ?>">
+    </div>
+
+    <div class="modal-footer">
+        <button
+            type="submit"
+            class="btn btn-primary"
+            data-request="onBookingChangeInfo"
+            data-request-confirm="Are you sure?"
+            data-popup-load-indicator>
+            <?= e(trans('backend::lang.form.save')) ?>
+        </button>
+        <button
+            type="button"
+            class="btn btn-default"
+            data-dismiss="popup">
+            <?= e(trans('backend::lang.form.cancel')) ?>
+        </button>
+    </div>
+<?= Form::close() ?>

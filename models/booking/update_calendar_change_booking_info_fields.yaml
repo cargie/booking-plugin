@@ -1,0 +1,22 @@
+fields:
+    room:
+        label: Customer
+        type: relation
+        select: name
+        disabled: true
+    customer:
+        label: Room
+        type: relation
+        select: name
+        disabled: true
+    booking_dates:
+        label: Dates
+        type: text
+        disabled: true
+    status:
+        type: dropdown
+        label: Status
+        options:
+            approved: Approved
+            pending: Pending
+            declined: Declined
