@@ -205,6 +205,6 @@ class Booking extends Model
     {
         $from = $this->dates()->first()->date;
         $last = $this->dates()->get()->last()->date;
-        return $from->format("M d, Y") . ' - ' . $last->format("M d, Y");
+        return $from->format("M d, Y H:i:s") . ' - ' . $last->format("M d, Y H:i:s");
     }
 }
