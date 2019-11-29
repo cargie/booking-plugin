@@ -35,21 +35,21 @@ tabs:
             required: true
             type: dropdown
             tab: 'Basic Information'
-        payment_status:
-            label: Payment Status
-            options:
-                completed: Completed
-                unknown: Unknown
-                in progress: In Progress
-                failed: Failed
-                partially paid: Partially Paid
-                cancelled: Cancelled
-                refunded: Refunded
-                fraud: Fraud
-            span: right
-            required: true
-            type: dropdown
-            tab: 'Basic Information'
+        # payment_status:
+        #     label: Payment Status
+        #     options:
+        #         completed: Completed
+        #         unknown: Unknown
+        #         in progress: In Progress
+        #         failed: Failed
+        #         partially paid: Partially Paid
+        #         cancelled: Cancelled
+        #         refunded: Refunded
+        #         fraud: Fraud
+        #     span: right
+        #     required: true
+        #     type: dropdown
+        #     tab: 'Basic Information'
         adult:
             tab: Basic Information
             type: dropdown
