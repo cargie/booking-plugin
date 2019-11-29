@@ -18,7 +18,7 @@ defaultRedirect: cargie/booking/bookings
 create:
     title: Create Booking
     redirect: cargie/booking/bookings/preview/:id
-    redirectClose: cargie/booking/bookings/preview:/:id
+    redirectClose: cargie/booking/bookings
     form: $/cargie/booking/models/booking/create_fields.yaml
 # Update page
 update:
