@@ -55,6 +55,7 @@ class Calendar extends Controller
         try {
             $booking = Booking::findOrFail(post()['id']);
             $this->vars['id'] = $booking->id;
+            $this->vars['url'] = Backend::url(sprintf('cargie/booking/bookings/preview/%s', $booking->id));
             $this->vars['widget'] = $this->makeBookingChangeInfoWidget($booking);
         }
         catch (Exception $ex) {
