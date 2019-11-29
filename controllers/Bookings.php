@@ -53,6 +53,25 @@ class Bookings extends Controller
             ]);
             $from->addDay();
         }
+
+        $invoice = $model->invoice()->create([
+            'user_id' => $model->user_id
+        ]);
+        $invoice->first_name = $model->customer->name;
+        $invoice->last_name = $model->customer->surname;
+        $invoice->email = $model->customer->email;
+        $invoice->phone = $model->customer->phone;
+
+        $invoice->save();
+
+        $item = $invoice->items()->create([
+            'description' => $model->room->name,
+            'quantity' => 1,
+            'price' => $model->rate,
+        ]);
+        $item->save();
+
+        $invoice->save();
     }
 
     public function formAfterDelete($model)
