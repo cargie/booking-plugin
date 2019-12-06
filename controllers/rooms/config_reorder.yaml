@@ -1,0 +1,17 @@
+# ===================================
+#  Reorder Behavior Config
+# ===================================
+
+# Reorder Title
+title: Reorder Rooms
+
+# Attribute name
+nameFrom: name
+
+# Model Class name
+modelClass: Cargie\Booking\Models\Room
+
+# Toolbar widget configuration
+toolbar:
+    # Partial for toolbar buttons
+    buttons: reorder_toolbar

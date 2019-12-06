@@ -5,6 +5,7 @@ use Cargie\Booking\Models\RoomType;
 use Model;
 use October\Rain\Database\Traits\NestedTree;
 use October\Rain\Database\Traits\SimpleTree;
+use October\Rain\Database\Traits\Sortable;
 use \October\Rain\Database\Traits\Validation;
 
 /**
@@ -12,13 +13,15 @@ use \October\Rain\Database\Traits\Validation;
  */
 class Room extends Model
 {
-    use Validation;
+    use Validation, Sortable;
     /**
      * @var string The database table used by the model.
      */
     public $table = 'cargie_booking_rooms';
 
     // const PARENT_ID = 'room_type_id';
+
+    const SORT_ORDER = 'priority';
 
     public $rules = [
         'name' => 'required|min:3',
