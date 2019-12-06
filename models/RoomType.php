@@ -1,6 +1,7 @@
 <?php namespace Cargie\Booking\Models;
 
 use Model;
+use October\Rain\Database\Traits\Sortable;
 use October\Rain\Database\Traits\Validation;
 
 /**
@@ -8,7 +9,7 @@ use October\Rain\Database\Traits\Validation;
  */
 class RoomType extends Model
 {
-    use Validation;
+    use Validation, Sortable;
     /**
      * @var string The database table used by the model.
      */
@@ -27,6 +28,10 @@ class RoomType extends Model
         'featured_image' => 'required',
         'images' => 'required|min:2',
         'cost' => 'required',
+    ];
+
+    protected $casts = [
+        'meta' => 'array'
     ];
     /**
      * @var array Fillable fields
