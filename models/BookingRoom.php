@@ -169,24 +169,25 @@ class BookingRoom extends Model
             ]);
             $start->addDay();
         }
-        info('after create');
-        info([
-            $this->start_at,
-            $this->end_at
-        ]);
     }
 
     public function afterUpdate()
     {
-        // if (($this->start_at != $this->original['start_at']) || ($this->end_at != $this->original['end_at'])) {
-        //     $this->dates()->delete();
-        //     while ($this->start_at->lte($this->end_at)) {
-        //         $this->dates()->create([
-        //             'date' => $this->start_at->format('Y-m-d'),
-        //         ]);
-        //         $this->start_at->addDay();
-        //     }
-        // }
-        info('after update');
+        if (($this->start_at != $this->original['start_at']) || ($this->end_at != $this->original['end_at'])) {
+            $this->dates()->delete();
+            $start = $this->start_at;
+            $end = $this->end_at;
+            while ($start->lte($this->end_at)) {
+                $this->dates()->create([
+                    'date' => $start->format('Y-m-d'),
+                ]);
+                $start->addDay();
+            }
+        }
+    }
+
+    public function getCalculatedRate()
+    {
+        return $this->room->cost ? $this->room->cost->getRateByVisitors($this->adult, $this->children, $this->room->rate) : 0;
     }
 }
