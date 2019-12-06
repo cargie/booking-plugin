@@ -55,12 +55,13 @@ class Bookings extends Controller
         // }
 
         $invoice = $model->invoice()->create([
-            'user_id' => $model->user_id
+            'user_id' => $model->user_id,
         ]);
         $invoice->first_name = $model->customer->name;
         $invoice->last_name = $model->customer->surname;
         $invoice->email = $model->customer->email;
         $invoice->phone = $model->customer->phone;
+        $invoice->status_id = $model->status == 'approved' ? 2 : 1;
 
         $invoice->save();
 
