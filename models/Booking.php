@@ -76,6 +76,7 @@ class Booking extends Model
         'booked_rooms' => [
             Room::class,
             'table' => 'cargie_booking_booking_rooms',
+            'pivot' => ['start_at', 'end_at', 'adult', 'children']
         ],
     ];
     public $morphTo = [];
@@ -220,8 +221,8 @@ class Booking extends Model
 
     public function getBookingDatesAttribute()
     {
-        $from = $this->dates()->first()->date;
-        $last = $this->dates()->get()->last()->date;
-        return $from->format("M d, Y H:i:s") . ' - ' . $last->format("M d, Y H:i:s");
+        $from = optional($this->dates()->first())->date;
+        $last = optional($this->dates()->get()->last())->date;
+        return trim(($from ? $from->format("M d, Y H:i:s") : '') . ' - ' . ($last  ? $last->format("M d, Y H:i:s"): ''));
     }
 }

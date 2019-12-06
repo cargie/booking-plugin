@@ -26,3 +26,24 @@ rooms:
     emptyMessage: Booking has no rooms
     view:
         toolbarButtons: create|delete
+# booked_rooms:
+#     label: Booked Rooms
+#     view:
+#         toolbarButtons: add|remove
+#         list:
+#             columns:
+#                 name:
+#                     label: Room
+#                     type: text
+#                 pivot[start_at]:
+#                     label: Check In
+#                     type: date
+#                 pivot[end_at]:
+#                     label: Check Out
+#                     type: date
+#                 pivot[adult]:
+#                     label: Adult
+#                     type: number
+#                 pivot[children]:
+#                     label: Children
+#                     type: number
