@@ -1,8 +1,28 @@
 customer:
     label: Customer
+    span: full
     view:
-        form: $/cargie/booking/models/customer/fields.yaml
+        form:
+            fields:
+                name:
+                    type: text
+                    label: Name
+                    span: auto
+                surname:
+                    type: text
+                    label: Name
+                    span: auto
+                email:
+                    type: text
+                    label: Email
         toolbarButtons: create|link
     manage:
         form: $/cargie/booking/models/customer/fields.yaml
         list: $/cargie/booking/models/customer/columns.yaml
+rooms:
+    label: Rooms
+    list: ~/plugins/cargie/booking/models/bookingroom/columns.yaml
+    form: ~/plugins/cargie/booking/models/bookingroom/fields.yaml
+    emptyMessage: Booking has no rooms
+    view:
+        toolbarButtons: create|delete
