@@ -76,7 +76,8 @@ class Booking extends Model
         'booked_rooms' => [
             Room::class,
             'table' => 'cargie_booking_booking_rooms',
-            'pivot' => ['start_at', 'end_at', 'adult', 'children']
+            'pivot' => ['start_at', 'end_at', 'adult', 'children'],
+            'pivotModel' => BookingRoomPivot::class,
         ],
     ];
     public $morphTo = [];
