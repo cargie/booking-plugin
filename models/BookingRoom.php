@@ -109,7 +109,7 @@ class BookingRoom extends Model
         } elseif ($context == "update") {
             $booking = Booking::find($this->id);
             if ($this->start_at) {
-                $fields->to->value = '';
+                // $fields->end_at->value = '';
             }
             if ($this->end_at) {
                 if ($booking->dates()->get()->last()->date->format("y-m-d") != Carbon::parse($this->end_at)->format("y-m-d")) {
@@ -146,15 +146,15 @@ class BookingRoom extends Model
                 $fields->adult->options = array_combine($adult_merge, $adult_merge);
                 $merge = array_merge(['null' => '-- select number --'], $children_range);
                 $fields->children->options = array_combine($merge, $merge);
-                if (is_numeric($this->children)) {
-                    $from = Carbon::parse($this->start_at);
-                    $to = Carbon::parse($this->end_at);
-                    $visitor_days = $from->diffInDays($to) + 1;
-                    $visitor_rate = $selected_room->cost->getRateByVisitors($this->adult, $this->children, $selected_room->rate);
-                    $fields->rate->value = $visitor_rate * $visitor_days;
-                } else {
+                // if (is_numeric($this->children)) {
+                //     $from = Carbon::parse($this->start_at);
+                //     $to = Carbon::parse($this->end_at);
+                //     $visitor_days = $from->diffInDays($to) + 1;
+                //     $visitor_rate = $selected_room->cost->getRateByVisitors($this->adult, $this->children, $selected_room->rate);
+                //     $fields->rate->value = $visitor_rate * $visitor_days;
+                // } else {
 
-                }
+                // }
             }
         }
     }
