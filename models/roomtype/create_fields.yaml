@@ -1,14 +1,13 @@
 tabs:
-    stretch: true
     fields:
         name:
-            tab: Basic Information
+            tab: 'Basic Information'
             label: Name
             type: text
             span: auto
             required: true
         slug:
-            tab: Basic Information
+            tab: 'Basic Information'
             label: Slug
             type: text
             span: auto
@@ -17,22 +16,18 @@ tabs:
                 field: name
                 type: slug
         rate:
-            tab: Basic Information
+            tab: 'Basic Information'
             label: Rate
             type: number
             span: auto
             required: true
         capacity:
-            tab: Basic Information
+            tab: 'Basic Information'
             label: Capacity
             type: number
             span: auto
             required: true
-        # priority:
-            tab: Basic Information
-            label: Priority
-            span: auto
-            type: dropdown
+            comment: Set maximum capacity
             options:
                 1: 1
                 2: 2
@@ -64,18 +59,53 @@ tabs:
                 29: 29
                 30: 30
         is_enable:
-            tab: Basic Information
+            tab: 'Basic Information'
             label: Active
             type: switch
+            span: auto
+            comment: Set to allow room to be displayed
+        is_available:
+            tab: 'Basic Information'
+            label: Allow booking
+            type: switch
             default: 1
+            span: auto
+            comment: Set to allow room to be booked
         description:
-            tab: Details
             label: Description
-            type: richeditor
+            size: ''
+            span: full
             required: true
+            type: richeditor
+            tab: Details
+        short_description:
+            label: 'Short Description'
+            size: ''
+            span: full
+            required: 1
+            type: richeditor
+            tab: Details
+        meta:
+            label: Meta
+            prompt: 'Add new item'
+            span: auto
+            type: repeater
+            tab: Details
+            form:
+                fields:
+                    label:
+                        label: Label
+                        span: auto
+                        required: 1
+                        type: text
+                    value:
+                        label: Value
+                        span: auto
+                        required: 1
+                        type: text
         featured_image:
             tab: Images
-            label: Featured Image
+            label: 'Featured Image'
             type: fileupload
             mode: image
             span: auto
@@ -87,18 +117,18 @@ tabs:
             mode: image
             span: auto
         rates:
-            tab: Rates & Costs
+            tab: 'Rates & Costs'
             span: auto
             label: Rates
             type: partial
         valuations:
-            tab: Rates & Costs
-            label: Valuation Days
+            tab: 'Rates & Costs'
+            label: 'Valuation Days'
             type: partial
             path: field_valuations
             span: right
         cost:
-            tab: Rates & Costs
-            label: Visitor Costs
+            tab: 'Rates & Costs'
+            label: 'Visitor Costs'
             type: relation
             span: auto

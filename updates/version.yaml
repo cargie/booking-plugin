@@ -19,3 +19,15 @@
 1.0.4:
     - 'Updated table cargie_booking_bookings'
     - builder_table_update_cargie_booking_bookings_3.php
+1.0.5:
+    - 'Updated table cargie_booking_room_types'
+    - builder_table_update_cargie_booking_room_types.php
+1.0.6:
+    - 'Updated table cargie_booking_room_types'
+    - builder_table_update_cargie_booking_room_types_2.php
+1.0.7:
+    - 'Updated table cargie_booking_room_types'
+    - builder_table_update_cargie_booking_room_types_3.php
+1.0.8:
+    - 'Updated table cargie_booking_room_types'
+    - builder_table_update_cargie_booking_room_types_4.php
