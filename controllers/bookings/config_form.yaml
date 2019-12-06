@@ -25,6 +25,7 @@ update:
     title: Edit Booking
     redirect: cargie/booking/bookings
     redirectClose: cargie/booking/bookings
+    form: $/cargie/booking/models/booking/create_fields.yaml
 
 # Preview page
 preview:

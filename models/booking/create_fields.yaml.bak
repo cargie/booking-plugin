@@ -1,0 +1,79 @@
+tabs:
+    fields:
+        from:
+            tab: 'Basic Information'
+            label: From
+            type: datepicker
+            mode: datetime
+            span: auto
+            required: true
+        to:
+            tab: 'Basic Information'
+            label: To
+            type: datepicker
+            dependsOn: from
+            mode: datetime
+            span: auto
+            required: true
+        room_id:
+            tab: 'Basic Information'
+            type: dropdown
+            label: Room
+            dependsOn: to
+            span: left
+            options:
+                '': '-- select room --'
+        status:
+            label: Status
+            options:
+                approved: Approved
+                pending: Pending
+            span: left
+            required: true
+            type: dropdown
+            tab: 'Basic Information'
+        # payment_status:
+        #     label: Payment Status
+        #     options:
+        #         completed: Completed
+        #         unknown: Unknown
+        #         in progress: In Progress
+        #         failed: Failed
+        #         partially paid: Partially Paid
+        #         cancelled: Cancelled
+        #         refunded: Refunded
+        #         fraud: Fraud
+        #     span: right
+        #     required: true
+        #     type: dropdown
+        #     tab: 'Basic Information'
+        adult:
+            tab: 'Basic Information'
+            type: dropdown
+            label: Adult
+            span: left
+            dependsOn: room_id
+            required: true
+            showSearch: false
+            options:
+                '': '-- select number --'
+        children:
+            tab: 'Basic Information'
+            type: dropdown
+            label: Children
+            dependsOn: adult
+            showSearch: false
+            span: right
+            options:
+                '': '-- select number --'
+        rate:
+            tab: 'Basic Information'
+            type: text
+            label: Rate
+            span: left
+            dependsOn: children
+        customer:
+            tab: Customer
+            type: partial
+            label: Customer
+            required: true

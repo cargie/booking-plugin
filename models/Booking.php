@@ -29,10 +29,10 @@ class Booking extends Model
     protected $fillable = [];
     protected $purgeable = ['from', 'to'];
     protected $rules = [
-        'room_id' => 'required|exists:cargie_booking_rooms,id',
-        'adult' => 'numeric|min:0',
-        'children' => 'numeric|min:0|required',
-        'rate' => 'required|numeric|min:0',
+        // 'room_id' => 'required|exists:cargie_booking_rooms,id',
+        // 'adult' => 'numeric|min:0',
+        // 'children' => 'numeric|min:0|required',
+        // 'rate' => 'required|numeric|min:0',
         // 'customer' => 'required',
     ];
     public $attributes = [
@@ -47,10 +47,20 @@ class Booking extends Model
      */
     public $hasOne = [];
     public $hasMany = [
-        'dates' => [
-            'Cargie\Booking\Models\BookingDate',
-            'orderBy' => 'date',
+        // 'dates' => [
+        //     'Cargie\Booking\Models\BookingDate',
+        //     'orderBy' => 'date',
+        // ],
+        'rooms' => [
+            BookingRoom::class,
+            'table' => 'cargie_booking_booking_rooms'
         ],
+    ];
+    public $hasManyThrough = [
+        'dates' => [
+            BookingDate::class,
+            'through' => BookingRoom::class,
+        ]
     ];
     public $belongsTo = [
         'room' => [
@@ -62,7 +72,12 @@ class Booking extends Model
             'key' => 'user_id',
         ],
     ];
-    public $belongsToMany = [];
+    public $belongsToMany = [
+        'booked_rooms' => [
+            Room::class,
+            'table' => 'cargie_booking_booking_rooms',
+        ],
+    ];
     public $morphTo = [];
     public $morphOne = [
         'invoice' => [
@@ -75,7 +90,8 @@ class Booking extends Model
 
     public function filterFields($fields, $context = null)
     {
-        if ($context == "create") {
+        /*
+        if($context == "create") {
             if ($this->from) {
                 $fields->to->value = '';
             }
@@ -173,6 +189,7 @@ class Booking extends Model
                 }
             }
         }
+        */
     }
 
     public function getFromAttribute($value)

@@ -10,9 +10,9 @@ columns:
     id:
         label: ID
         searchable: true
-    room:
-        label: Room
-        relation: room
+    booked_rooms:
+        label: Rooms
+        relation: booked_rooms
         select: name
     customer:
         label: Customer

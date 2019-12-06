@@ -7,16 +7,10 @@
 
 <?php if (!$this->fatalError): ?>
 
-    <?= Form::open(['class'=>'layout']) ?>
-
-        <div class="layout-row min-size">
-            <?= $this->formRender() ?>
-        </div>
+    <?= Form::open(['class' => 'layout']) ?>
 
         <div class="layout-row">
-            <div class="relation-inset">
-                <?= $this->relationRender('rooms', $this->formGetSessionKey()) ?>
-            </div>
+            <?= $this->formRender() ?>
         </div>
 
         <div class="form-buttons">
@@ -25,7 +19,7 @@
                     type="submit"
                     data-request="onSave"
                     data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="Creating Invoice..."
+                    data-load-indicator="Creating Booking..."
                     class="btn btn-primary">
                     Create
                 </button>
@@ -34,12 +28,12 @@
                     data-request="onSave"
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Creating Invoice..."
+                    data-load-indicator="Creating Booking..."
                     class="btn btn-default">
                     Create and Close
                 </button>
                 <span class="btn-text">
-                    or <a href="<?= Backend::url('cargie/bookings/bookings') ?>">Cancel</a>
+                    or <a href="<?= Backend::url('cargie/booking/bookings') ?>">Cancel</a>
                 </span>
             </div>
         </div>

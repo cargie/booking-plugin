@@ -44,15 +44,15 @@ class Bookings extends Controller
 
     public function formAfterSave($model)
     {
-        $model->dates()->delete();
-        $from = Carbon::parse(post('Booking.from'));
-        $to = Carbon::parse(post('Booking.to'));
-        while ($from->lte($to)) {
-            $model->dates()->create([
-                'date' => $from->format('Y-m-d'),
-            ]);
-            $from->addDay();
-        }
+        // $model->dates()->delete();
+        // $from = Carbon::parse(post('Booking.from'));
+        // $to = Carbon::parse(post('Booking.to'));
+        // while ($from->lte($to)) {
+        //     $model->dates()->create([
+        //         'date' => $from->format('Y-m-d'),
+        //     ]);
+        //     $from->addDay();
+        // }
 
         $invoice = $model->invoice()->create([
             'user_id' => $model->user_id
@@ -64,12 +64,14 @@ class Bookings extends Controller
 
         $invoice->save();
 
-        $item = $invoice->items()->create([
-            'description' => $model->room->name,
-            'quantity' => 1,
-            'price' => $model->rate,
-        ]);
-        $item->save();
+        foreach($model->rooms as $room) {
+            $item = $invoice->items()->create([
+                'description' => $room->name,
+                'quantity' => 1,
+                'price' => $room->getCalculatedRate(),
+            ]);
+            $item->save();
+        }
 
         $invoice->save();
     }
