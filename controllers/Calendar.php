@@ -32,15 +32,17 @@ class Calendar extends Controller
     public function index()
     {
         $this->asExtension('ListController')->index();
-        $this->vars['bookings'] = Booking::where('status', '<>', 'declined')->with(['dates', 'room'])->get()->transform(function ($booking) {
+        $this->vars['bookings'] = Booking::where('status', '<>', 'declined')->with(['rooms.dates', 'rooms.booking'])->get()->transform(function ($booking) {
+            return $booking->rooms;
+        })->flatten()->transform(function ($booking_room) {
             return [
-                'id' => $booking->id,
-                'title' => $booking->room->name . ' - ' . ucfirst($booking->customer->name) . ' - ' . ucfirst($booking->status),
-                'start' => $booking->dates->first()->date->format('Y-m-d'),
-                'end' => $booking->dates->last()->date->format('Y-m-d'),
-                'color' => $booking->status == 'pending' ? 'gray' : null,
+                'id' => $booking_room->booking->id,
+                'title' => $booking_room->room->name . ' - ' . ucfirst($booking_room->booking->customer->name) . ' - ' . ucfirst($booking_room->booking->status),
+                'start' => $booking_room->dates->first()->date->format('Y-m-d'),
+                'end' => $booking_room->dates->last()->date->format('Y-m-d'),
+                'color' => $booking_room->booking->status == 'pending' ? 'gray' : null,
                 // 'allDay' => false,
-                'data' => $booking->toArray(),
+                'data' => $booking_room->toArray(),
             ];
         });
     }
