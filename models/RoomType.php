@@ -85,4 +85,9 @@ class RoomType extends Model
     {
         return $query->where('is_enable', 1);
     }
+
+    public function scopeAvailable($query)
+    {
+        return $this->where('is_available', 1);
+    }
 }
