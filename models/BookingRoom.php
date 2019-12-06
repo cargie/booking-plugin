@@ -125,7 +125,7 @@ class BookingRoom extends Model
                     $fields->room_id->value = -1;
                     $fields->adult->value = -1;
                     $fields->children->value = -1;
-                    $fields->rate->value = "";
+                    // $fields->rate->value = "";
                 }
                 $rooms = Room::available()->orderBy('priority', 'desc')->get();
                 $booked_rooms = BookingDate::whereBetween('date',
@@ -178,9 +178,11 @@ class BookingRoom extends Model
             ]);
             $start->addDay();
         }
+
+        $this->createInvoiceItem();
     }
 
-    public function afterSave()
+    protected function createInvoiceItem()
     {
         $booking = $this->booking;
 
@@ -225,6 +227,7 @@ class BookingRoom extends Model
                 $start->addDay();
             }
         }
+        $this->createInvoiceItem();
     }
 
     public function afterDelete()
@@ -238,6 +241,8 @@ class BookingRoom extends Model
 
     public function getCalculatedRate()
     {
-        return $this->room->cost ? $this->room->cost->getRateByVisitors($this->adult, $this->children, $this->room->rate) : 0;
+        $visitor_rate = $this->room->cost->getRateByVisitors($this->adult, $this->children, $this->room->rate);
+        $visitor_days = $this->start_at->diffInDays($this->end_at) + 1;
+        return $visitor_rate * $visitor_days;
     }
 }
