@@ -39,6 +39,7 @@ fields:
         type: dropdown
         label: Children
         dependsOn: adult
+        required: true
         showSearch: false
         span: right
         options:
