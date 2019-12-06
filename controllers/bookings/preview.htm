@@ -20,6 +20,7 @@
         <ul class="nav nav-tabs">
             <!-- <li><a href="#statusLog">Calendar</a></li> -->
             <li><a href="#customer">Customer</a></li>
+            <li><a href="#rooms">Rooms</a></li>
             <li class="active"><a href="#invoice">Invoice</a></li>
         </ul>
         <div class="tab-content">
@@ -33,6 +34,11 @@
             <div class="tab-pane">
                 <div class="padded-container">
                     <?= $this->relationRender('customer') ?>
+                </div>
+            </div>
+            <div class="tab-pane">
+                <div class="padded-container">
+                    <?= $this->relationRender('rooms') ?>
                 </div>
             </div>
             <div class="tab-pane active">

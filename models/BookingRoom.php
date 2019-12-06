@@ -1,5 +1,6 @@
 <?php namespace Cargie\Booking\Models;
 
+use Cargie\Booking\Models\BookingRoom;
 use Illuminate\Support\Carbon;
 use Model;
 
@@ -53,7 +54,9 @@ class BookingRoom extends Model
 
     public $morphOne = [
         'invoice_item' => [
-            'Responsiv\Pay\Models\InvoiceItem', 'name' => 'related'
+            'Responsiv\Pay\Models\InvoiceItem',
+            'name' => 'related',
+            'delete' => true,
         ]
     ];
 
@@ -113,7 +116,7 @@ class BookingRoom extends Model
             }
 
         } elseif ($context == "update") {
-            $booking = Booking::find($this->id);
+            $booking = BookingRoom::find($this->id);
             if ($this->start_at) {
                 // $fields->end_at->value = '';
             }
@@ -177,6 +180,38 @@ class BookingRoom extends Model
         }
     }
 
+    public function afterSave()
+    {
+        $booking = $this->booking;
+
+        if (!$this->invoice_item) {
+
+            if ($booking->invoice) {
+                $item = $booking->invoice->items()->create([
+                    'description' => $this->room->name,
+                    'quantity' => 1,
+                    'price' => $this->getCalculatedRate(),
+                ]);
+                $item->related = $this;
+                $item->save();
+
+                $booking->invoice->save();
+            }
+        } else {
+            if ($booking->invoice) {
+                $item = $this->invoice_item->fill([
+                    'description' => $this->room->name,
+                    'quantity' => 1,
+                    'price' => $this->getCalculatedRate(),
+                ]);
+                $item->related = $this;
+                $item->save();
+
+                $booking->invoice->save();
+            }
+        }
+    }
+
     public function afterUpdate()
     {
         if (($this->start_at != $this->original['start_at']) || ($this->end_at != $this->original['end_at'])) {
@@ -189,6 +224,15 @@ class BookingRoom extends Model
                 ]);
                 $start->addDay();
             }
+        }
+    }
+
+    public function afterDelete()
+    {
+        if ($this->invoice_item) {
+            $invoice_item = $this->invoice_item;
+            $this->invoice_item()->delete();
+            $invoice_item->invoice->save();
         }
     }
 
