@@ -1,0 +1,46 @@
+fields:
+    # room_id:
+    #     label: Room
+    #     span: auto
+    #     type: text
+    start_at:
+        label: Check In
+        required: 1
+        span: auto
+        type: datepicker
+        mode: date
+    end_at:
+        label: Check Out
+        required: 1
+        span: auto
+        type: datepicker
+        mode: date
+        dependsOn: start_at
+    room_id:
+        label: Room
+        type: dropdown
+        required: 1
+        span: full
+        dependsOn: end_at
+        options:
+            '': '-- select room --'
+    adult:
+        tab: 'Basic Information'
+        type: dropdown
+        label: Adult
+        span: left
+        dependsOn: room_id
+        required: true
+        showSearch: false
+        options:
+            '': '-- select number --'
+    children:
+        tab: 'Basic Information'
+        type: dropdown
+        label: Children
+        dependsOn: adult
+        showSearch: false
+        span: right
+        options:
+            '': '-- select number --'
+

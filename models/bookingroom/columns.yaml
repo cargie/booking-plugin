@@ -1,0 +1,17 @@
+columns:
+    room:
+        label: Room
+        relation: room
+        select: name
+    start_at:
+        label: Check In
+        type: date
+    end_at:
+        label: Check Out
+        type: date
+    adult:
+        label: Adult
+        type: number
+    children:
+        label: Children
+        type: number
