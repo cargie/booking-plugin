@@ -11,7 +11,7 @@ class BookingRoom extends Model
 {
     use \October\Rain\Database\Traits\Validation;
     
-    use \October\Rain\Database\Traits\SoftDelete;
+    // use \October\Rain\Database\Traits\SoftDelete;
 
     protected $dates = ['deleted_at', 'start_at', 'end_at'];
 
