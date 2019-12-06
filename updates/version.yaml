@@ -52,3 +52,6 @@
 1.0.15:
     - 'Updated table cargie_booking_bookings'
     - builder_table_update_cargie_booking_bookings_4.php
+1.0.16:
+    - 'Updated table cargie_booking_rooms'
+    - builder_table_update_cargie_booking_rooms.php

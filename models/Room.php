@@ -3,6 +3,8 @@
 use Cargie\Booking\Models\Room;
 use Cargie\Booking\Models\RoomType;
 use Model;
+use October\Rain\Database\Traits\NestedTree;
+use October\Rain\Database\Traits\SimpleTree;
 use \October\Rain\Database\Traits\Validation;
 
 /**
@@ -16,13 +18,15 @@ class Room extends Model
      */
     public $table = 'cargie_booking_rooms';
 
+    // const PARENT_ID = 'room_type_id';
+
     public $rules = [
         'name' => 'required|min:3',
         'slug' => 'required|min:3|unique:cargie_booking_rooms,slug',
         'rate' => 'required|numeric|min:0',
         'capacity' => 'required|numeric|min:1',
         'priority' => 'required|numeric',
-        'room_type' => 'required|exists:cargie_booking_room_types,id',
+        // 'room_type' => 'required|exists:cargie_booking_room_types,id',
     ];
 
     public $customMessages = [

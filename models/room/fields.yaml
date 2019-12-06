@@ -21,6 +21,11 @@ tabs:
             type: relation
             span: auto
             emptyOption: '-- parent --'
+        # parent:
+        #     label: Parent
+        #     type: relation
+        #     tab: 'Basic Information'
+        #     span: auto
         rate:
             tab: 'Basic Information'
             label: Rate

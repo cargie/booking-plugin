@@ -20,6 +20,11 @@ tabs:
             label: 'Room Type'
             type: dropdown
             span: auto
+        # parent:
+        #     label: Parent
+        #     type: relation
+        #     tab: 'Basic Information'
+        #     span: auto
         rate:
             tab: 'Basic Information'
             label: Rate
