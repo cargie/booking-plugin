@@ -67,7 +67,7 @@ class Bookings extends Controller
 
         foreach($model->rooms as $room) {
             $item = $invoice->items()->create([
-                'description' => $room->name,
+                'description' => $room->room->name,
                 'quantity' => 1,
                 'price' => $room->getCalculatedRate(),
             ]);
