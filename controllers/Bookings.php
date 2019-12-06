@@ -186,4 +186,22 @@ class Bookings extends Controller
 
         return $this->makeWidget('Backend\Widgets\Form', $config);
     }
+
+    public function onRelationManageCreate()
+    {
+        parent::onRelationManageCreate();
+        return Redirect(url()->current());
+    }
+
+    public function onRelationManageUpdate()
+    {
+        parent::onRelationManageUpdate();
+        return Redirect(url()->current());
+    }
+
+    public function onRelationButtonDelete()
+    {
+        parent::onRelationButtonDelete();
+        return Redirect(url()->current());
+    }
 }
