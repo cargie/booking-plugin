@@ -71,6 +71,7 @@ class Bookings extends Controller
                 'quantity' => 1,
                 'price' => $room->getCalculatedRate(),
             ]);
+            $item->related = $room;
             $item->save();
         }
 

@@ -51,6 +51,12 @@ class BookingRoom extends Model
         ]
     ];
 
+    public $morphOne = [
+        'invoice_item' => [
+            'Responsiv\Pay\Models\InvoiceItem', 'name' => 'related'
+        ]
+    ];
+
     public function getRoomOptions()
     {
         return  [];
