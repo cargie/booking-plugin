@@ -116,24 +116,23 @@ class BookingRoom extends Model
             }
 
         } elseif ($context == "update") {
-            $booking = BookingRoom::find($this->id);
+            $booking = $this;
             if ($this->start_at) {
                 // $fields->end_at->value = '';
             }
             if ($this->end_at) {
-                if ($booking->dates()->get()->last()->date->format("y-m-d") != Carbon::parse($this->end_at)->format("y-m-d")) {
+                if ($this->original['end_at'] != Carbon::parse($this->end_at)->format("Y-m-d H:i:s")) {
                     $fields->room_id->value = -1;
                     $fields->adult->value = -1;
                     $fields->children->value = -1;
-                    // $fields->rate->value = "";
                 }
                 $rooms = Room::available()->orderBy('priority', 'desc')->get();
                 $booked_rooms = BookingDate::whereBetween('date',
                     [Carbon::parse($this->start_at)->format('Y-m-d'), Carbon::parse($this->end_at)->format('Y-m-d')]
-                )->get()->filter(function ($item) {
-                    return $item->reservation;
-                })->transform(function ($item, $key) {
-                    return $item->reservation->room;
+                )->whereHas('booking', function ($query) {
+                    $query->where('status', 'approved');
+                })->get()->transform(function ($item, $key) {
+                    return $item->booking->room;
                 })->unique();
                 $available_rooms = $rooms->diff($booked_rooms)->lists('name', 'id');
                 if ($available_rooms) {
