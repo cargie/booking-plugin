@@ -28,7 +28,7 @@ class Room extends Model
         'slug' => 'required|min:3|unique:cargie_booking_rooms,slug',
         'rate' => 'required|numeric|min:0',
         'capacity' => 'required|numeric|min:1',
-        'priority' => 'required|numeric',
+        // 'priority' => 'required|numeric',
         // 'room_type' => 'required|exists:cargie_booking_room_types,id',
     ];
 
