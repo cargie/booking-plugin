@@ -37,7 +37,7 @@ class Calendar extends Controller
         })->flatten()->transform(function ($booking_room) {
             return [
                 'id' => $booking_room->booking->id,
-                'title' => $booking_room->room->name . ' - ' . ucfirst($booking_room->booking->customer->name) . ' - ' . ucfirst($booking_room->booking->status),
+                'title' => '#' . $booking_room->booking->id . ' ' . $booking_room->room->name . ' - ' . ucfirst($booking_room->booking->customer->name) . ' - ' . ucfirst($booking_room->booking->status),
                 'start' => $booking_room->dates->first()->date->format('Y-m-d'),
                 'end' => $booking_room->dates->last()->date->format('Y-m-d'),
                 'color' => $booking_room->booking->status == 'pending' ? 'gray' : null,
