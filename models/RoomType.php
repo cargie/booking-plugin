@@ -51,6 +51,13 @@ class RoomType extends Model
             'order' => 'priority',
         ],
     ];
+    public $hasManyThrough = [
+        'bookings' => [
+            Booking::class,
+            'table' => 'cargie_booking_bookings',
+            'through' => Room::class
+        ]
+    ];
     public $belongsTo = [
         'cost' => [
             'Cargie\Booking\Models\VisitorCost',
