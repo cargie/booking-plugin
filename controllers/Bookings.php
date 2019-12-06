@@ -65,17 +65,6 @@ class Bookings extends Controller
 
         $invoice->save();
 
-        foreach($model->rooms as $room) {
-            $item = $invoice->items()->create([
-                'description' => $room->room->name,
-                'quantity' => 1,
-                'price' => $room->getCalculatedRate(),
-            ]);
-            $item->related = $room;
-            $item->save();
-        }
-
-        $invoice->save();
     }
 
     public function formAfterDelete($model)
