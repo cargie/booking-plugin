@@ -57,7 +57,9 @@ class Room extends Model
         //     Valuation::class,
         //     'table' => 'cargie_booking_valuations',
         // ],
-
+        'bookings' => [
+            BookingRoom::class,
+        ]
     ];
     public $belongsTo = [
         'room_type' => [
