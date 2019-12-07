@@ -39,7 +39,7 @@
                     Create and Close
                 </button>
                 <span class="btn-text">
-                    or <a href="<?= Backend::url('cargie/bookings/bookings') ?>">Cancel</a>
+                    or <a href="<?= Backend::url('cargie/booking/bookings') ?>">Cancel</a>
                 </span>
             </div>
         </div>
@@ -49,6 +49,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
-    <p><a href="<?= Backend::url('cargie/bookings/bookings') ?>" class="btn btn-default">Return to bookings list</a></p>
+    <p><a href="<?= Backend::url('cargie/booking/bookings') ?>" class="btn btn-default">Return to bookings list</a></p>
 
 <?php endif ?>
