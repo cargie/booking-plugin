@@ -78,7 +78,7 @@ class Bookings extends Controller
             $booking = $this->formFindModelObject($recordId);
             $this->vars['widget'] = $this->makeStatusFormWidget($booking);
         }
-        catch (Exception $ex) {
+        catch (\Exception $ex) {
             $this->handleError($ex);
         }
 
@@ -91,7 +91,7 @@ class Bookings extends Controller
             $booking = $this->formFindModelObject($recordId);
             $this->vars['widget'] = $this->makePaymentStatusFormWidget($booking);
         }
-        catch (Exception $ex) {
+        catch (\Exception $ex) {
             $this->handleError($ex);
         }
 
@@ -103,7 +103,7 @@ class Bookings extends Controller
         try {
             $booking = $this->formFindModelObject($recordId);
             $this->vars['widget'] = $this->makeNoteFormWidget($booking);
-        } catch (Exception $ex) {
+        } catch (\Exception $ex) {
             $this->handleError($ex);
         }
 
