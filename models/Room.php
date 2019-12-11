@@ -58,6 +58,12 @@ class Room extends Model
             BookingRoom::class,
         ]
     ];
+    public $hasManyThrough = [
+        'booked_dates' => [
+            BookingDate::class,
+            'through' => BookingRoom::class,
+        ]  
+    ];
     public $belongsTo = [
         'room_type' => [
             'Cargie\Booking\Models\RoomType',
@@ -112,6 +118,11 @@ class Room extends Model
     }
 
     public function scopeAvailable($query)
+    {
+        return $query->where('is_enable', 1);
+    }
+
+    public function scopeEnabled($query)
     {
         return $query->where('is_enable', 1);
     }

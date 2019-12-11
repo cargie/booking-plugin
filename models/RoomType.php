@@ -53,8 +53,8 @@ class RoomType extends Model
     ];
     public $hasManyThrough = [
         'bookings' => [
-            Booking::class,
-            'table' => 'cargie_booking_bookings',
+            BookingRoom::class,
+            // 'table' => 'cargie_booking_bookings',
             'through' => Room::class
         ]
     ];
