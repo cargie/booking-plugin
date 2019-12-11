@@ -1,6 +1,5 @@
 <?php namespace Cargie\Booking\Models;
 
-use Cargie\Booking\Models\BookingRoom;
 use Illuminate\Support\Carbon;
 use Model;
 
@@ -187,7 +186,7 @@ class BookingRoom extends Model
 
         if (!$this->invoice_item) {
 
-            if ($booking->invoice) {
+            if ($booking && $booking->invoice) {
                 $item = $booking->invoice->items()->create([
                     'description' => $this->room->name,
                     'quantity' => 1,

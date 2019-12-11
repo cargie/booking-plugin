@@ -1,10 +1,7 @@
 <?php namespace Cargie\Booking\Models;
 
-use Cargie\Booking\Models\Room;
-use Cargie\Booking\Models\RoomType;
 use Model;
-use October\Rain\Database\Traits\NestedTree;
-use October\Rain\Database\Traits\SimpleTree;
+use Cargie\Booking\Models\RoomType;
 use October\Rain\Database\Traits\Sortable;
 use \October\Rain\Database\Traits\Validation;
 
