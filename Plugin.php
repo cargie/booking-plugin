@@ -65,10 +65,8 @@ class Plugin extends PluginBase
      */
     public function registerComponents()
     {
-        return []; // Remove this line to activate
-
         return [
-            'Cargie\Booking\Components\MyComponent' => 'myComponent',
+            'Cargie\Booking\Components\Rooms' => 'rooms',
         ];
     }
 
