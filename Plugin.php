@@ -1,8 +1,8 @@
 <?php namespace Cargie\Booking;
 
-use Backend;
-use Illuminate\Support\Facades\Event;
+use Backend\Facades\Backend;
 use System\Classes\PluginBase;
+use Illuminate\Support\Facades\Event;
 
 /**
  * Booking Plugin Information File
