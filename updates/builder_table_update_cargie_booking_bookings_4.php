@@ -9,7 +9,7 @@ class BuilderTableUpdateCargieBookingBookings4 extends Migration
     {
         Schema::table('cargie_booking_bookings', function($table)
         {
-            $table->integer('room_id')->nullable()->change();
+            $table->integer('room_id')->change();
             $table->decimal('rate', 10, 2)->nullable()->change();
             $table->integer('adult')->nullable()->change();
             $table->integer('children')->nullable()->change();
