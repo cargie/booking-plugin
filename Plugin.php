@@ -1,6 +1,7 @@
 <?php namespace Cargie\Booking;
 
 use Backend\Facades\Backend;
+use Illuminate\Support\Carbon;
 use System\Classes\PluginBase;
 use Illuminate\Support\Facades\Event;
 
@@ -163,5 +164,17 @@ class Plugin extends PluginBase
     public function evalUppercaseListColumn($value, $column, $record)
     {
         return strtoupper($value);
+    }
+
+    public function registerMarkupTags()
+    {
+        return [
+
+            'functions' => [
+                'parse' => function ($value) {
+                    return Carbon::parse($value);
+                }
+            ]
+        ];
     }
 }
